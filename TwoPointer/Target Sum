@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void reachTar(int[] arr, int n, int k){
+        int l=0, h=n-1;
+        Arrays.sort(arr);
+        while(l<h){
+            if(arr[l]==arr[l+1]){
+                l++;
+            }
+            else if(arr[h]==arr[h-1]){
+                h--;
+            }
+            if(arr[l]+arr[h]==k){
+                System.out.println(arr[l]+" "+arr[h]);
+                l++;
+                h--;
+            }
+            else if(arr[l]+arr[h]<k){
+                l++;
+            }
+            else{
+                h--;
+            }
+        }
+        
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int k = sc.nextInt();
+        reachTar(arr, n, k);
+    }
+}
