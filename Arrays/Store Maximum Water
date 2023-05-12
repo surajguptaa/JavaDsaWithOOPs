@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+     public static int maxWaterTrap(int[] arr, int n){
+    int lmax = Integer.MIN_VALUE;
+        int[] pre = new int[n];
+        pre[0] = arr[0];
+        for(int i=0;i<n;i++){
+            if(lmax<arr[i]){
+               lmax = arr[i];
+                pre[i] = lmax;
+            }
+            else{
+                pre[i] = lmax;
+            }
+        }
+      
+        int rmax = Integer.MIN_VALUE;
+        int[] suf = new int[n];
+        suf[n-1] = suf[n-1];
+        for(int i=n-1;i>=0;i--){
+            if(rmax<arr[i]){
+               rmax = arr[i]; 
+                suf[i] = rmax;
+            }
+            else{
+                suf[i] = rmax;
+            }
+        }
+          int ans = 0;
+         for(int i=0;i<n;i++){
+             ans += Math.min(pre[i], suf[i])-arr[i];
+         }
+         return ans;
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println(maxWaterTrap(arr,n ));
+         
+       
+    }
+}
