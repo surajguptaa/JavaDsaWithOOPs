@@ -1,0 +1,67 @@
+//METHOD-1.........................................
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int array1[] = new int[n];
+        for(int i=0;i<n;i++){
+            array1[i] = sc.nextInt();
+        }
+        int m = sc.nextInt();
+        int array2[] = new int[m];
+        for(int i=0;i<m;i++){
+         array2[i] = sc.nextInt();
+        }
+        boolean ans = false;
+        if(m!=n){
+            System.out.println(ans);
+            return;
+        }
+       if(Arrays.equals(array1, array2)){
+           ans = true;
+       }
+        else{
+            ans = false;
+        }
+        System.out.println(ans);
+    }
+}
+
+
+//METHOD-2.....................................................
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr1 = new int[n];
+        for(int i=0;i<n;i++){
+            arr1[i] = sc.nextInt();
+        }
+    int m = sc.nextInt();
+        int[] arr2 = new int[m];
+        for(int i=0;i<m;i++){
+            arr2[i] = sc.nextInt();
+        }
+        if(n!=m){
+            System.out.println("false");
+            return;
+        }
+        else{
+             for(int i=0;i<m;i++){
+                 if(arr1[i]!=arr2[i]){
+                    System.out.println("false");
+                     return; 
+                 }
+             }
+        }
+            System.out.println("true");  
+    }
+}
