@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[][] arr = new int[n][n];
+        for(int i=0;i<n;i++){
+           for(int j=0;j<n;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        String r = "";
+        for(int i=0;i<n;i++){
+            r += arr[0][i];
+        }
+        r += r;
+        for(int i=0;i<n;i++){
+            String c = "";
+            for(int j=0;j<n;j++){
+                c += arr[i][j];
+            }
+            if(!r.contains(c)){
+                System.out.println("NO");
+                return;
+            } 
+        }
+         System.out.println("YES");
+    }
+}
