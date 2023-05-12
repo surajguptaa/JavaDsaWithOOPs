@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int mat[][] = new int[n][m];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                mat[i][j] = sc.nextInt();
+            }
+        }
+        int t = 0, b = n-1, l = 0, r = m-1;
+        int dir = 1;
+        while(t<=b && l<=r){
+           if(dir==1){
+               for(int i=l;i<=r;i++){
+                   System.out.print(mat[t][i]+ "   ");
+               }
+               t++;
+                dir=2;
+           }
+            else if(dir==2){
+                for(int i=t;i<=b;i++){
+                  System.out.print(mat[i][r]+ "   ");  
+                }
+                r--;
+                dir=3;
+            }
+            else if(dir==3){
+                for(int i=r;i>=l;i--){
+                  System.out.print(mat[b][i]+ "   ");   
+                }
+                b--;
+                dir=4;
+            }
+            else if(dir==4){
+                for(int i=b;i>=t;i--){
+                   System.out.print(mat[i][l]+ "   ");  
+                }
+                l++;
+                 dir=1;
+            }
+        }
+    }
+}
