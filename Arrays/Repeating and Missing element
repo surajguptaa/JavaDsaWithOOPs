@@ -1,0 +1,51 @@
+//MEHOD-1.............................
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        int miss = 0, repeat = 0;
+        // finding missing and repeating elements
+        for (int i = 1; i < n; i++){
+    
+        if(arr[i] == arr[i-1]){
+            repeat = arr[i]; 
+            }
+      
+        if((i+1)!=arr[i]){
+               miss = i+1;
+            } 
+        }
+        
+     System.out.println(repeat);
+     System.out.println(miss);   
+    }
+}
+
+//METHOD-2....................
+
+ // Find Repeated Ele And Find Missing Ele
+       Map<Integer, Boolean> num = new HashMap<>();
+        int m = arr.length;
+        for (Integer i : arr) {
+            if (num.get(i) == null) {
+                num.put(i, true);
+            }
+            else {
+                System.out.println(i);
+            }
+        }
+        for (int i = 1; i <= m; i++) {
+            if (num.get(i) == null) {
+                System.out.println(i);
+            }
+        } 
