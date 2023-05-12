@@ -1,0 +1,68 @@
+//Method1-----------------------------
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void swap(int arr[], int s, int e){
+        int tmp = arr[s];
+        arr[s] = arr[e];
+        arr[e] = tmp;
+    }
+    public static void main(String[] args) {
+       Scanner sc  = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int i=0, j=0;
+        while(j<n){
+            if(arr[j]==0){
+                swap(arr, i++, j++);
+               
+            }
+            else{
+                j++;
+            }
+        }
+        for(int x: arr){
+            System.out.print(x+ " ");
+        }
+    }
+}
+
+//Method2---------------------------------
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int count =0;
+        for(int i=0;i<n;i++){
+            if(arr[i]==0){
+            count++;
+            }
+        }
+        
+        for(int i=0;i<count;i++){
+            arr[i]=0;
+        }
+        
+        for(int i=count;i<n;i++){
+            arr[i]=1;
+        }
+        
+          for(int i=0;i<n;i++){
+          System.out.print(arr[i]+ " ");
+        }
+    }
+}
