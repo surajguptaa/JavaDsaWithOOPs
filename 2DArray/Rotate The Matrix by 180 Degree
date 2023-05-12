@@ -1,0 +1,85 @@
+//Method1-----------------------------
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void print(int[][] arr){
+        int n = arr.length;
+        for(int i=n-1;i>=0;i--){
+            for(int j=n-1;j>=0;j--){
+            System.out.print(arr[i][j]+ "  ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[][] = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+            arr[i][j] = sc.nextInt();
+            }
+        }
+        print(arr);
+    }
+}
+
+//Method2-------------------------------
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void revRow(int[][] arr){
+        
+        int n = arr.length;
+       for(int i=0;i<n;i++){
+           int l=0, r=arr.length-1;
+           while(l<r){
+               int temp = arr[i][l];
+               arr[i][l] = arr[i][r];
+               arr[i][r] = temp;
+               l++;
+               r--;
+           }
+       }
+    }
+     public static void revCol(int[][] arr){
+        
+        int n = arr.length;
+       for(int i=0;i<n;i++){
+           int t=0, b=arr.length-1;
+           while(t<b){
+               int temp = arr[t][i];
+               arr[t][i] = arr[b][i];
+               arr[b][i] = temp;
+               t++;
+               b--;
+           }
+       }
+    }
+    public static void print(int[][] arr){
+        int n = arr.length;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+            System.out.print(arr[i][j]+ "  ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[][] = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+            arr[i][j] = sc.nextInt();
+            }
+        }
+        revRow(arr);
+        revCol(arr);
+        print(arr);
+    }
+}
