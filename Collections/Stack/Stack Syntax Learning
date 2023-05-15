@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Stack<Integer>stk = new Stack<>();
+        for(int i=0;i<n;i++){
+            int x = sc.nextInt();
+            if(x==1){
+                System.out.println(stk.size());
+            }
+            else if(x==2){
+                if(stk.isEmpty()){
+                    System.out.println(-1);
+                }
+                else{
+                    stk.pop();
+                }
+            }
+            else if(x==3){
+                int val = sc.nextInt();
+                stk.push(val);
+            }
+            else if(x==4){
+                if(stk.isEmpty()){
+                    System.out.println(-1);
+                }
+                else{
+                    System.out.println(stk.peek());
+                }
+            }
+        }
+    }
+}
