@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int revNum(int x){
+         Stack<Integer> stk = new Stack<>();
+        while(x>0){
+            stk.push(x%10);
+            x = x/10;
+        }
+        int ans =0;int i=1;
+        while(!stk.isEmpty()){
+            ans = stk.pop()*i+ans;
+            i = i*10;
+        }
+        return ans;
+        
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+       
+        for(int i=1;i<=n;i++){
+            int x = sc.nextInt();
+            System.out.println(revNum(x));
+        }
+    }
+}
