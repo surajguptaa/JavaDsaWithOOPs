@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int k = sc.nextInt();
+        int[] freq = new int[26];
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(ch>='a' && ch<='z'){
+                freq[ch-97]++;
+            }
+        }
+
+         for(int i=1;i<=k;i++){
+            char ans =' ';
+            int max=0;
+            int vis=0;
+            for(int j=0;j<26;j++){
+                if(freq[j]>max){
+                    max=freq[j];
+                    ans =(char)(j+97);
+                    vis=j;
+                }
+            }
+            System.out.print(ans+" ");
+            freq[vis]=-1;
+        }
+    }
+}
