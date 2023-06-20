@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean check(String str, String row){
+        for(int i=0;i<str.length();i++){
+            if(row.indexOf(str.charAt(i))==-1){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] str = new String[n];
+        for(int i=0;i<n;i++){
+            str[i] = sc.next();
+        }
+        
+        String row1 = "qwertyuiop";
+        String row2 = "asdfghjkl";
+        String row3 = "zxcvbnm";
+        Boolean flag = false;
+        for(int i=0;i<n;i++){
+            if(check(str[i], row1) || check(str[i], row2) || check(str[i], row3)){
+                System.out.print(str[i] + " ");
+                flag = true;
+            }
+        }
+        if(!flag){
+            System.out.print(-1);
+        }
+    }
+}
