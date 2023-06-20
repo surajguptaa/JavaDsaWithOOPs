@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String tar = sc.nextLine();
+        int n = str.length();
+        int m = tar.length();
+        int i=0, j=0;
+        while(i<n && j<m){
+            if(str.charAt(i)==tar.charAt(j)){
+                i++;
+                j++;
+            }
+            else{
+                j++;
+            }
+        }
+        if(i==n){
+            System.out.println("True"); 
+        }
+        else{
+              System.out.println("False");
+        }
+      
+    }
+}
