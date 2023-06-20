@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int s = 0, e = str.length()-1;
+        int count = 1;
+        int pow = 1;
+        while(s<e){
+            if(str.charAt(s)==str.charAt(s+1)){
+                count++;
+            }
+            else{
+                count = 1;
+            }
+            if(count>pow){
+                pow = count;
+            }
+            s++;
+        }
+        System.out.println(pow);
+    }
+}
