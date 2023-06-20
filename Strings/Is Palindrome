@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static String isPalindrome(String str){
+        int s=0, e = str.length()-1;
+        char[] ch = str.toCharArray();
+        while(s<e){
+            if(ch[s]!=ch[e]){
+                return "Not a Palindrome";
+            }
+            s++;
+            e--;
+        }
+        return "Palindrome";
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        System.out.println(isPalindrome(str));
+    }
+}
