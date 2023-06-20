@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static Boolean longPresssedName(String name, String typed){
+       if(name.length()>typed.length()){
+           return false;
+       }
+        int i=0, j=0;
+        while(i<name.length() && j<typed.length()){
+            if(name.charAt(i)==typed.charAt(j)){
+                i++;
+                j++;
+            }
+            else if(i>0 && name.charAt(i-1)==typed.charAt(j)){
+                j++;
+            }
+            else{
+                return false;
+            }
+        }
+        while(j<typed.length()){
+            if(name.charAt(i-1)==typed.charAt(j)){
+                j++;
+            }
+            else{
+                return false;
+            }
+        }
+        
+        if(i<name.length()){
+            return false;
+        }
+      return true;  
+    }
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        String typed = sc.nextLine();
+        System.out.println(longPresssedName(name, typed));
+    }
+}
+
+//  TestCase               Name                Typed
+// ----------------------------------------------------
+// TestCase1 -             alexes                alex
+// TestCase2 -             alex                 aaleex
+// TestCase3 -             alaex                aaleex
+// TestCase4 -             alexes               aaleexeesss
+// textCase5 -             alexes               aaleex 
+
