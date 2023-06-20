@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[][] mat = new int[n][m];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                mat[i][j] = sc.nextInt();
+            }
+        }
+        
+        for(int i=1;i<n;i++){
+            for(int j=1;j<m;j++){
+                if(mat[i][j]==1){
+                    int min = Math.min(mat[i][j-1], mat[i-1][j]);
+                    mat[i][j] = Math.min(min, mat[i-1][j-1])+1;
+                }
+            }
+        }
+        int count = 0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                count += mat[i][j];
+            }
+        }
+       System.out.println(count); 
+    }
+}
