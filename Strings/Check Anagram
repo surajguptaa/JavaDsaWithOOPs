@@ -1,0 +1,71 @@
+//METHOD-1
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        
+        char[] ch1 = str1.toCharArray();
+        char[] ch2 = str2.toCharArray();
+        Arrays.sort(ch1);
+        Arrays.sort(ch2);
+
+        if(ch1.length==ch2.length){
+            for(int i=0;i<ch1.length;i++){
+                if(ch1[i]!=ch2[i]){
+                System.out.println("False");
+                    return;
+                }
+                else{
+                     System.out.println("True");
+                    return;
+                }
+            }
+        }
+      else{
+            System.out.println("False");
+        }
+    }
+}
+
+//METHOD-2
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        
+        str1 = str1.toLowerCase();
+        int[] freq1 = new int[26];
+        for(int i=0;i<str1.length();i++){
+            char ch = str1.charAt(i);
+            if(ch>='a' && ch<='z'){
+                freq1[ch-97]++;
+            }
+                 
+        }
+        str2 = str2.toLowerCase();
+        int[] freq2 = new int[26];
+        for(int i=0;i<str2.length();i++){
+            char ch = str2.charAt(i);
+            if(ch>='a' && ch<='z'){
+             freq2[ch-97]++;
+            }
+        }
+        String ans = "True";
+        for(int i=0;i<26;i++){
+            if(freq1[i]!=freq2[i]){
+                ans = "False";
+            }
+        }
+        System.out.println(ans);
+    }
+}
