@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static int binarySearch(char ch[], char key)
+    {
+        int l=0;
+        int h=ch.length-1;
+        
+        while(l<=h)
+        {
+            int mid=(l+h)/2;
+            
+            if(ch[mid]==key)
+                return mid;
+            else if(ch[mid]>key)
+                h=mid-1;
+            else
+                l=mid+1;
+        }
+        
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        char ch=sc.next().charAt(0);
+        int n=sc.nextInt();
+        char[] arr=new char[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.next().charAt(0);
+        }
+        
+        for(char i=(char)(ch+1);i<='z';i++)
+        {
+            if(binarySearch(arr,i)!=-1)
+            {
+                System.out.println(i);
+                return;
+            }
+            
+        }    
+    }
+}
