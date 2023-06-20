@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void swap(char[] ch, int i, int j){
+        
+            char temp = ch[i];
+            ch[i] = ch[j];
+            ch[j] = temp;
+          
+    }
+    public static boolean isAlpha(char[] arr, int i){
+        char ch = arr[i];
+        if(ch>='a' && ch<='z' || ch>='A' && ch<='Z'){
+            return true;
+        }
+        return false;
+    }
+    public static String reveseOnlyLetter(String str){
+        char[] ch = str.toCharArray();
+        int s=0, e = str.length()-1;
+        while(s<e){
+            while(s<e && isAlpha(ch, s)==false){
+                s++;
+            }
+             while(s<e && isAlpha(ch, e)==false){
+                e--;
+            }
+            swap(ch, s, e);
+            s++;
+            e--;
+        }
+        String ans = "";
+        for(char c:ch){
+            ans += c;
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        System.out.println(reveseOnlyLetter(str));
+    }
+}
