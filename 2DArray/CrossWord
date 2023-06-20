@@ -1,0 +1,66 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+public static boolean crossWord(char[][] arr,  int r, int c, String word){
+        int n = arr.length;
+
+        //Check South -- T to B
+        String check = "";
+        for(int i=r;i<n;i++){
+            check += arr[i][c];
+            if(check.equals(word)){
+                return true;
+            }
+        }
+        
+        //Check East -- L to R
+        check="";
+        for(int j=c;j<n;j++){
+            check += arr[r][j];
+           if(check.equals(word)){
+                return true;
+            }
+        }
+         
+        //Check South-East
+        check="";
+        for(int i=r+1, j=c; i<n && j<n; i++,j++){
+            check += arr[i][j];
+            if(check.equals(word)){
+                return true;
+            }
+        }
+        
+        //Check South-West
+        check="";
+        for(int i=r+1, j=c; i<n && j>=0; i++,j--){
+            check += arr[i][j];
+            if(check.equals(word)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        char[][] arr = new char[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = sc.next().charAt(0);
+            }
+        }
+        String word = sc.next();
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+               if(crossWord(arr, i, j, word)){
+                  System.out.println("true");  
+                   return;
+               }
+        
+            }
+        }
+        System.out.println("false");
+    }
+}
