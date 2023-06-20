@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n = str.length();
+        int count =0;
+        int maxCount = 0;
+        for(int i=0;i<n;i++){
+            if(str.charAt(i)=='1'){
+                count++;
+            }
+            else{
+                count = 0;
+            }
+            if(count>maxCount){
+                maxCount = count;
+            }
+        }
+        System.out.println(maxCount);
+    }
+}
