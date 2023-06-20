@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean isPalindrome(String str){
+        int s = 0, e = str.length()-1;
+        while(s<e){
+            if(str.charAt(s)!=str.charAt(e)){
+                return false;
+            }
+            s++;
+            e--;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] str = new String[n];
+        for(int i=0;i<n;i++){
+            str[i] = sc.next();
+        }
+        String ans = "empty";
+        for(int i=0;i<n;i++){
+          if(isPalindrome(str[i])==true){
+              ans = str[i];
+              break;
+          }  
+        }
+        System.out.println(ans);
+    }
+}
