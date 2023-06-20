@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n = str.length();
+        int sum = 0;
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                 String cur = "";
+                for(int k=i;k<=j;k++){
+                    cur += str.charAt(k);
+                }  
+                sum += Integer.parseInt(cur);
+            }
+        }
+        System.out.println(sum);
+    }
+}
