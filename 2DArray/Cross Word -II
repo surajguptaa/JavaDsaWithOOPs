@@ -1,0 +1,59 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean crossWord(char[][] arr, int r, int c, String word){
+        int n = arr.length;
+        int m = arr[0].length;
+        
+        //East
+        String check="";
+        for(int j=c;j<m;j++){
+            check += arr[r][j];
+            if(check.equals(word)){
+                return true;
+            }
+        }
+        
+        //South
+        check="";
+        for(int i=r;i<n;i++){
+            check += arr[i][c];
+            if(check.equals(word)){
+                return true;
+            }
+        }
+        
+        //South-East
+        check="";
+        for(int i=r, j=c;i<n && j<m; i++, j++){
+            check += arr[i][j];
+            if(check.equals(word)){
+                return true;
+            } 
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        char[][] arr = new char[n][m];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                arr[i][j] = sc.next().charAt(0);
+            }
+        }
+        
+        String word = sc.next();
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(crossWord(arr, i, j, word)){
+                    System.out.println("true");
+                    return;
+                }
+            }
+        }
+        System.out.println("false");
+    }
+}
