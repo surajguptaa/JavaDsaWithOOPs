@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean isKill(int[][] arr, int r, int c){
+        int n = arr.length;
+        //check East
+        for(int j=c+1;j<n;j++){
+            if(arr[r][j]==1){
+                return true;
+            }
+        }
+        //check South
+        for(int i=r+1;i<n;i++){
+            if(arr[i][c]==1){
+                return true;
+            }
+        }
+        //check South-East
+        for(int i=r+1, j=c+1;i<n && j<n;i++,j++){
+            if(arr[i][j]==1){
+                return true;
+            }
+        }
+        //check South-West
+        for(int i=r+1,j=c-1;i<n && j>=0;i++,j--){
+            if(arr[i][j]==1){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[][] arr = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+               if(arr[i][j]==1){
+                   if(isKill(arr, i, j)){
+                       System.out.println("Danger");
+                       return;
+                   }
+               }
+            }
+        }
+        System.out.println("N Queens");
+    }
+}
