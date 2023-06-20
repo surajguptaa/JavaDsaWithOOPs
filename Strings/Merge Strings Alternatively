@@ -1,0 +1,16 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        String b = sc.nextLine();
+        String merge = "";
+        for(int i=0;i<a.length();i++){
+            merge += a.charAt(i);
+            merge += b.charAt(i);
+        }
+        System.out.println(merge);
+    }
+}
