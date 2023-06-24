@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]  = sc.nextInt();
+        }
+        Map<Integer, Integer>freq = new HashMap<>();
+        for(int i=0;i<n;i++){
+            freq.put(arr[i], freq.getOrDefault(arr[i], 0)+1);
+        }
+         
+        Boolean flag = true;
+        Set<Integer> ans = new HashSet<>();
+         for(int e: freq.keySet()){
+             if(!ans.add(freq.get(e))) {
+                 flag = false;
+             }     
+            }
+       System.out.println(flag);
+        
+    }
+}
