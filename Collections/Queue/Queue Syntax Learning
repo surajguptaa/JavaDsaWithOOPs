@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Queue<Integer>qu = new PriorityQueue<>();
+        for(int i=0;i<n;i++){
+            int x = sc.nextInt();
+            if(x==1){
+                System.out.println(qu.size());
+            }
+            else if(x==2){
+                if(qu.isEmpty()){
+                    System.out.println(-1); 
+                }
+                else{
+                    qu.poll();
+                }
+            }
+            else if(x==3){
+                int v = sc.nextInt();
+                qu.offer(v);
+            }
+            else{
+               if(qu.isEmpty()){
+                    System.out.println(-1); 
+                }
+                else{
+                    System.out.println(qu.peek()); 
+                } 
+            }
+        }
+    }
+}
