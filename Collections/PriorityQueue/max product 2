@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        PriorityQueue<Integer>pq = new PriorityQueue<>(Collections.reverseOrder());
+        for(int i=0;i<n;i++){
+           pq.offer(arr[i]);
+        }
+        int b = pq.poll();
+        int a = pq.poll();
+        System.out.println((a-1)*(b-1));
+    }
+}
