@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        Map<Character, Integer>freq = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            freq.put(s.charAt(i), freq.getOrDefault(s.charAt(i), 0)+1);
+        }
+        
+        int ans = 0;
+        Boolean oddOne = false;
+        for(Character key: freq.keySet()){
+            if(freq.get(key)%2==0){
+              ans += freq.get(key);
+            }
+            else{
+                if(oddOne==false){
+                    ans += freq.get(key);
+                    oddOne = true;
+                }
+                else{
+                    ans += freq.get(key)-1;
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+}
