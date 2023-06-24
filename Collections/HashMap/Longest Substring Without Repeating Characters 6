@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int longestSubString(String s){
+        int max = 0;
+        int i=0;
+        int j=0;
+        int n = s.length();
+        Set<Character>set = new HashSet<>();
+        while(i<n && j<n){
+            if(!set.contains(s.charAt(j))){
+                set.add(s.charAt(j));
+                j++;
+                max = Math.max(max, j-i);
+            }
+            else{
+                set.remove(s.charAt(i));
+                i++;
+            }
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        
+        System.out.println(longestSubString(str));
+    }
+}
