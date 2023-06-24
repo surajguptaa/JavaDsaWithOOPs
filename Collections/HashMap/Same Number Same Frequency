@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        Map<Integer, Integer>m = new HashMap<>();
+        for(int i=0;i<n;i++){
+            m.put(arr[i], m.getOrDefault(arr[i], 0)+1);
+        }
+        
+           ArrayList<Integer> ans = new ArrayList<>();
+        for(int ele: m.keySet()){
+            if(Math.abs(ele)==m.get(ele))
+                ans.add(ele);    
+        }
+       Collections.sort(ans);
+        for(int a:ans)
+        System.out.println(a);
+        
+    }
+}
