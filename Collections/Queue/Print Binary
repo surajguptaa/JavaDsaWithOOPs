@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+      
+        Queue<String> qu = new ArrayDeque<>();
+        qu.offer("1");
+        while(n>0){
+            String s = qu.poll();
+            System.out.print(s+" ");
+            qu.offer(s+"0");
+            qu.offer(s+"1");
+            
+            n--;
+            
+        }
+    }
+}
