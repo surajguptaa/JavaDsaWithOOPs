@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] str = new String[n];
+        Stack<String>stk = new Stack<>();
+        for(int i=0;i<n;i++){
+            str[i] = sc.next();
+        }
+        stk.push(str[0]);
+        for(int i=1;i<n;i++){
+            if(!stk.isEmpty() && stk.peek().equals(str[i])){
+                stk.pop();
+            }
+            else{
+                stk.push(str[i]);
+            }
+        }
+        System.out.println(stk.size());
+    }
+}
