@@ -1,0 +1,37 @@
+class Result {
+
+    public static List<Double> runningMedian(List<Integer> a) {
+        List<Double> list = new ArrayList<>();
+           
+        PriorityQueue<Integer> min = new PriorityQueue();
+        PriorityQueue<Integer> max = new PriorityQueue(Collections.reverseOrder()); 
+        
+        for(int i = 0; i < a.size(); i++){
+            int ele = a.get(i);
+            if(max.isEmpty() || max.peek() >= ele){
+                max.add(ele);
+            }
+            else{
+                min.add(ele);
+            }
+ 
+                if(max.size() > min.size()+1){
+                    min.add(max.poll());
+                }
+                else if(min.size() > max.size()){
+                    max.add(min.poll());
+                }
+            
+                Double ans  = 0.0;
+            if(max.size() == min.size()){
+                ans = 1.0*(max.peek()+min.peek())/2.0;
+            }
+            else{
+                ans = 1.0*max.peek();
+                }
+            list.add(ans);
+        }
+        return list;
+    }
+
+}
