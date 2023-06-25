@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new sc(System.in);
+
+        System.out.print("Enter the number of characters: ");
+        int n = sc.nextInt();
+        sc.nextLine(); // Consume the remaining newline character
+
+        System.out.print("Enter the characters: ");
+        String input = sc.nextLine();
+        String s = "";
+        // Truncate or pad the input string to ensure it contains exactly n characters
+        if (input.length() < n) {
+            s = input;
+        } else if (input.length() > n) {
+            s = input.substring(0, n);
+        }
+
+        System.out.println("Entered characters: " + s);
+
+        scanner.close();
+    }
+}
